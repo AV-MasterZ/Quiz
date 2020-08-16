@@ -11,17 +11,10 @@ import org.zhadaev.user.model.User;
 import org.zhadaev.user.repository.IRoleRepository;
 import org.zhadaev.user.repository.IUserRepository;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
 
 @Service
 public class UserService implements UserDetailsService {
-
-    @PersistenceContext
-    private EntityManager em;
 
     @Autowired
     IUserRepository userRepository;
@@ -52,8 +45,8 @@ public class UserService implements UserDetailsService {
             return false;
         }
 
-        //Role role = roleRepository.findByName("ROLE_USER");
-        user.setRoles(Collections.singleton(new Role("ROLE_USER")));
+        Role role = roleRepository.findByName("ROLE_USER");
+        user.setRoles(Collections.singleton(role));
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         userRepository.save(user);
         return true;
