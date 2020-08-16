@@ -4,6 +4,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.util.Collection;
 import java.util.Set;
 
@@ -15,15 +16,21 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @Column(nullable=false)
+    @Size(min=3, message = "Не меньше 3 знаков")
     private String username;
 
+    @Column(nullable=false)
+    @Size(min=4, message = "Не меньше 4 знаков")
     private String password;
 
     @Transient
     private String passwordConfirm;
 
+    @Column(name = "first_name", nullable=false)
     private String firstName;
 
+    @Column(name = "last_name")
     private String lastName;
 
     @ManyToMany(fetch = FetchType.EAGER)

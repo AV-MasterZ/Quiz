@@ -12,6 +12,7 @@ public class Role implements GrantedAuthority {
     @Id
     private Long id;
 
+    @Column(nullable=false)
     private String name;
 
     @Transient
