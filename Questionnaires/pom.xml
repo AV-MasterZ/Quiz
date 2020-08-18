@@ -9,6 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <groupId>org.zhadaev.questionnaires</groupId>
     <artifactId>Questionnaires</artifactId>
 
 
