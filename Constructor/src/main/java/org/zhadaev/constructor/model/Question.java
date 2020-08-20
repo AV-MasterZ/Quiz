@@ -10,7 +10,7 @@ public class Question {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column(nullable=false)
     private String question;
@@ -23,7 +23,7 @@ public class Question {
     @JoinColumn(name = "questionnaire_id", nullable = false)
     private Questionnaire questionnaire;
 
-    @OneToMany(mappedBy = "question", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
+    @OneToMany(mappedBy = "question", fetch = FetchType.EAGER, orphanRemoval = true)
     private Set<Answer> answers;
 
     public void addAnswer(final Answer answer) {
@@ -35,11 +35,11 @@ public class Question {
         answers.add(answer);
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(final long id) {
+    public void setId(final Long id) {
         this.id = id;
     }
 

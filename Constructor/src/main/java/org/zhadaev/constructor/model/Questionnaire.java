@@ -10,12 +10,12 @@ public class Questionnaire {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column(nullable=false)
     private String title;
 
-    @OneToMany(mappedBy = "questionnaire", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
+    @OneToMany(mappedBy = "questionnaire", fetch = FetchType.EAGER, orphanRemoval = true)
     private Set<Question> questions;
 
     public void addQuestion(final Question question) {
@@ -27,11 +27,11 @@ public class Questionnaire {
         questions.add(question);
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(final long id) {
+    public void setId(final Long id) {
         this.id = id;
     }
 
