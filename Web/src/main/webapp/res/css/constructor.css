@@ -1,0 +1,130 @@
+* {
+  border-radius: 3px;
+}
+
+form {
+  max-width: 800px;
+  margin: auto;
+}
+
+input[type=text], select {
+  background: #f1f1f1;
+}
+
+form h1 {
+  margin-top: 50px;
+  text-align: center;
+}
+
+#title {
+  width: 100%;
+  height: 50px;
+  padding-left: 15px;
+  margin: 5px 0 20px;
+  border: none;
+  font-size: 20px;
+}
+
+#qtable {
+  width: 100%;
+}
+
+.addquestionbtn, .addanswerbtn, .qdelbtn, .adelbtn {
+  background: #d3d3d3;
+}
+
+button, #submitbtn {
+  border: none;
+  opacity: 0.8;
+}
+
+button:hover, #submitbtn:hover {
+  opacity: 1;
+}
+
+.addquestionbtn {
+  width: 300px;
+  margin-top: 30px;
+}
+
+.question {
+  width: 100%;
+  height: 40px;
+  margin: 30px auto 5px;
+}
+
+.qtitle, .qtype, .qdelbtn, .addquestionbtn {
+  height: 40px;
+  border: none;
+  font-size: 16px;
+}
+
+.qtitle {
+  width: calc(100% - 300px);
+  min-width: 200px;
+  padding-left: 10px;
+}
+
+.qtype {
+  width: 200px;
+  padding-left: 10px;
+  margin: 0 5px;
+}
+
+.qdelbtn {
+  width: 40px;
+}
+
+.qdelbtn:hover, .adelbtn:hover {
+  color: red;
+}
+
+.atable {
+  width: 100%;
+}
+
+.answer {
+  width: 90%;
+  height: 30px;
+  margin: auto;
+}
+
+.atitle, .adelbtn, .addanswerbtn {
+  height: 30px;
+  border: none;
+  font-size: 14px;
+}
+
+.atitle {
+  width: calc(100% - 40px - 10px);
+  min-width: 200px;
+  padding-left: 10px;
+}
+
+.adelbtn {
+  width: 30px;
+  opacity: 0.8;
+}
+
+.addanswerbtn {
+  width: 200px;
+  margin-left: 5.5%;
+}
+
+.hiddenInput{
+  position:absolute;
+  overflow: hidden;
+  display:block;
+  height:0px;
+  width:0px;
+}
+
+#submitbtn {
+  display: block;
+  width: 60%;
+  height: 50px;
+  margin: 10px auto;
+  background: #2b61a7c4;
+  margin-top: 50px;
+  font-size: 20px;
+}
