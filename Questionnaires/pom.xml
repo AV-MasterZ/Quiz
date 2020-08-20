@@ -12,5 +12,17 @@
     <groupId>org.zhadaev.questionnaires</groupId>
     <artifactId>Questionnaires</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.zhadaev.user</groupId>
+            <artifactId>User</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.zhadaev.constructor</groupId>
+            <artifactId>Constructor</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
 
 </project>
