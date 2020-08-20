@@ -9,6 +9,7 @@
         <link href="/res/css/reg_log.css" rel="stylesheet" type="text/css" />
     </head>
 <body>
+    <%@include file="/WEB-INF/pages/nav.jsp"%>
 
     <form:form method="POST" modelAttribute="user">
 

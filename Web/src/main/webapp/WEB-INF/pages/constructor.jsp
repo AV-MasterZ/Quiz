@@ -8,6 +8,7 @@
     <link href="/res/css/constructor.css" rel="stylesheet" type="text/css" />
 </head>
 <body onload="fill();">
+    <%@include file="/WEB-INF/pages/nav.jsp"%>
 
     <form action="/constructor" method="POST">
         <h1>Конструктор</h1>
