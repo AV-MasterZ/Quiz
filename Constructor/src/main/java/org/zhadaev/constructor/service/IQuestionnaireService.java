@@ -11,6 +11,6 @@ public interface IQuestionnaireService {
     List<Questionnaire> findAll();
     Questionnaire findById(final Long id);
     void save(final Questionnaire questionnaire);
-    boolean delete(final Questionnaire questionnaire);
+    boolean delete(final Long id);
 
 }

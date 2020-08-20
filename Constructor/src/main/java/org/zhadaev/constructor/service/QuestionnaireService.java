@@ -83,15 +83,15 @@ public class QuestionnaireService implements IQuestionnaireService {
     }
 
     @Override
-    public boolean delete(final Questionnaire questionnaire) {
+    public boolean delete(final Long id) {
 
-        Optional<Questionnaire> questionnaireFromDB = questionnaireRepository.findById(questionnaire.getId());
+        Optional<Questionnaire> questionnaireFromDB = questionnaireRepository.findById(id);
 
         if (questionnaireFromDB.isEmpty()) {
             return false;
         }
 
-        questionnaireRepository.delete(questionnaire);
+        questionnaireRepository.delete(questionnaireFromDB.get());
 
         return true;
     }
