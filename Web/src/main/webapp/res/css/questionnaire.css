@@ -1,0 +1,27 @@
+form {
+  max-width: 800px;
+  margin: auto;
+}
+
+input[type=radio], input[type=checkbox] {
+  margin-left: 30px;
+}
+
+form h1 {
+  margin-top: 50px;
+  text-align: center;
+}
+
+#submitbtn {
+  display: block;
+  width: 60%;
+  height: 50px;
+  margin: 10px auto;
+  border: none;
+  background: #2b61a7c4;
+  opacity: 0.8;
+}
+
+#submitbtn:hover {
+  opacity: 1;
+}
