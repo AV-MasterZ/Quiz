@@ -1,0 +1,64 @@
+.container {
+  max-width: 800px;
+  margin: auto;
+}
+
+.container h1 {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.questionnaire {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
+  margin: 5px;
+  padding: 10px;
+  font-size: 20px;
+  border: 2px solid rgba(255, 255, 255, 0);
+}
+
+.questionnaire:hover {
+  border: 2px solid rgba(75, 103, 134, 0.822);
+  border-radius: 10px;
+}
+
+.buttons button {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(202, 214, 231);
+  opacity: 0.8;
+}
+
+.buttons button:hover {
+  opacity: 1;
+}
+
+.buttons i {
+  font-size: 25px;
+  color: rgb(123, 167, 170);
+}
+
+.editbtn:hover .fa-edit {
+  color: rgb(101, 187, 147);
+}
+
+.deletebtn:hover .fa-trash {
+  color: rgb(218, 63, 63);
+}
+
+#addbtn {
+  width: 200px;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(202, 214, 231);
+  opacity: 0.8;
+}
+
+#addbtn:hover {
+  opacity: 1;
+}
