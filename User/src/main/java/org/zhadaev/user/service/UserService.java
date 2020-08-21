@@ -12,6 +12,7 @@ import org.zhadaev.user.repository.IRoleRepository;
 import org.zhadaev.user.repository.IUserRepository;
 
 import java.util.Collections;
+import java.util.List;
 
 @Service
 public class UserService implements UserDetailsService {
@@ -24,6 +25,14 @@ public class UserService implements UserDetailsService {
 
     @Autowired
     BCryptPasswordEncoder bCryptPasswordEncoder;
+
+    public User findById(final Long id) {
+        return userRepository.findById(id).orElse(new User());
+    }
+
+    public List<User> findAll() {
+        return  userRepository.findAll();
+    }
 
     @Override
     public UserDetails loadUserByUsername(final String username) throws UsernameNotFoundException {
