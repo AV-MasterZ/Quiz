@@ -16,13 +16,12 @@
                 </sec:authorize>
 
                 <sec:authorize access="hasRole('ADMIN')">
-                    <a href="/useranswers">Ответы пользователей</a>
+                    <a href="/users">Ответы пользователей</a>
                 </sec:authorize>
 
                 <div class="topnav-right">
                     <sec:authorize access="!isAuthenticated()">
-                        <a href="/login">Войти</a>
-                        <a href="/registration">Регистрация</a>
+                        <a href="/login">Вход</a>
                     </sec:authorize>
                     <sec:authorize access="isAuthenticated()">
                         <a href="/logout">Выйти</a>
