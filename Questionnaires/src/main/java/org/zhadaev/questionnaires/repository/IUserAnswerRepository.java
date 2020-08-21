@@ -10,4 +10,5 @@ import java.util.Set;
 public interface IUserAnswerRepository extends JpaRepository<UserAnswer, Long> {
     Set<UserAnswer> findByUserId(final Long id);
     UserAnswer findByUserIdAndAnswerId(final Long userId, final Long answerId);
+    UserAnswer findByAnswerId(final Long answerId);
 }
