@@ -54,6 +54,7 @@ public class QuestionnairesController {
     @GetMapping("/questionnaires/delete/{id}")
     public String deleteQuestionnaire(@PathVariable("id") String id, Model model) {
         Long qid = Long.parseLong(id);
+        userAnswerService.deleteByQuestionnaireId(qid);
         questionnaireService.delete(qid);
         return "redirect:/questionnaires";
     }
