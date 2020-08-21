@@ -3,6 +3,7 @@ package org.zhadaev.questionnaires.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.zhadaev.constructor.model.Answer;
+import org.zhadaev.constructor.model.Question;
 import org.zhadaev.constructor.model.Questionnaire;
 import org.zhadaev.constructor.service.IAnswerService;
 import org.zhadaev.constructor.service.IQuestionnaireService;
@@ -44,21 +45,29 @@ public class UserAnswerService implements IUserAnswerService {
     }
 
     @Override
-    public void save(final List<String> answers, final Long id, final String username) {
+    public void save(final List<String> answers, final Long questionnaireId, final String username) {
 
-        Questionnaire questionnaire = questionnaireService.findById(id);
+        Questionnaire questionnaire = questionnaireService.findById(questionnaireId);
         User user = (User) userService.loadUserByUsername(username);
         Set<UserAnswer> userAnswers = new HashSet<>();
         for (String answerId: answers) {
             UserAnswer ua = new UserAnswer();
             ua.setUser(user);
-            ua.setQuestionnaire(questionnaire);
             Answer answer = answerService.findById(Long.parseLong(answerId));
             ua.setAnswer(answer);
             userAnswers.add(ua);
         }
 
-        Set<UserAnswer> oldUserAnswers = userAnswerRepository.findByQuestionnaireId(id);
+        Set<UserAnswer> oldUserAnswers = new HashSet<>();
+        Set<Question> questions = questionnaire.getQuestions();
+        for (Question q: questions) {
+            for (Answer a: q.getAnswers()) {
+                UserAnswer oldua = userAnswerRepository.findByUserIdAndAnswerId(user.getId(), a.getId());
+                if (oldua != null) {
+                    oldUserAnswers.add(oldua);
+                }
+            }
+        }
 
         if (!oldUserAnswers.isEmpty()) {
             for (UserAnswer oldua: oldUserAnswers) {
@@ -80,4 +89,8 @@ public class UserAnswerService implements IUserAnswerService {
         return true;
     }
 
+    @Override
+    public Set<UserAnswer> findByUserId(final Long id) {
+        return userAnswerRepository.findByUserId(id);
+    }
 }
