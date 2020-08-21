@@ -90,7 +90,30 @@ public class UserAnswerService implements IUserAnswerService {
     }
 
     @Override
+    public boolean deleteByQuestionnaireId(final Long id) {
+
+        Questionnaire questionnaire = questionnaireService.findById(id);
+
+        if (questionnaire.getQuestions().isEmpty()) return false;
+        for (Question q: questionnaire.getQuestions()) {
+            for (Answer a: q.getAnswers()) {
+                UserAnswer userAnswer = userAnswerRepository.findByAnswerId(a.getId());
+                if (userAnswer != null) userAnswerRepository.delete(userAnswer);
+            }
+        }
+
+        return true;
+
+    }
+
+    @Override
     public Set<UserAnswer> findByUserId(final Long id) {
         return userAnswerRepository.findByUserId(id);
     }
+
+    @Override
+    public UserAnswer findByAnswerId(final Long id) {
+        return userAnswerRepository.findByAnswerId(id);
+    }
+
 }

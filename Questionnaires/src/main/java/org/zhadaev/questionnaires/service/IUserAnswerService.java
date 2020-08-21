@@ -12,5 +12,7 @@ public interface IUserAnswerService {
     UserAnswer findById(final Long id);
     void save(final List<String> answers, final Long id, final String username);
     boolean delete(final Long id);
+    boolean deleteByQuestionnaireId(final Long id);
     Set<UserAnswer> findByUserId(final Long id);
+    UserAnswer findByAnswerId(final Long answerId);
 }
